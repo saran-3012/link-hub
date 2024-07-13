@@ -3,6 +3,7 @@ const cors = require('cors');
 require('dotenv').config();
 const connection = require('./config/db');
 const userRoutes = require('./Routers/user');
+const linkRoutes = require('./Routers/link');
 
 const app = express();
 const port = process.env.PORT || 8080;
@@ -13,6 +14,7 @@ app.use(cors());
 app.use(express.json());
 
 app.use('/users', userRoutes);
+app.use('/links', linkRoutes);
 
 app.get('/', (req, res) => {
     res.status(200).send("Link hub server!");
