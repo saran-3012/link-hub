@@ -1,5 +1,6 @@
 import { createContext, useContext, useState, useEffect } from 'react';
 import './App.css';
+import Navbar from './components/Navbar/Navbar';
 import AllRoutes from './pages/AllRoutes';
 
 const UserContext = createContext();
@@ -23,6 +24,7 @@ function App() {
       isDarkTheme, 
       toggleTheme
       }}>
+      {/* <Navbar />   */}
       <AllRoutes />
     </UserContext.Provider>
   )

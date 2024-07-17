@@ -17,6 +17,13 @@ const Share = () => {
 
     const fetchLinks = async (url) => {
         setIsLoading(true);
+        const storedData = JSON.parse(localStorage.getItem(`user-data:${username}`));
+        if(storedData){
+            setLinks(storedData.data);
+            setOwnerName(storedData.name);
+            setIsLoading(false);
+            return;
+        }
         try{
             const res = await fetch(url);
             const resJson = await res.json();
@@ -25,7 +32,7 @@ const Share = () => {
             }
             setLinks(resJson.data);
             setOwnerName(resJson.name);
-            console.log(resJson.data)
+            localStorage.setItem(`user-data:${username}`, JSON.stringify(resJson));
         }
         catch(err){
             setError(err.message);

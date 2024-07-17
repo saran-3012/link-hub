@@ -7,7 +7,7 @@ import Share from './Share/Share';
 const AllRoutes = () => {
   return (
     <Routes>
-        <Route path='/' element={<Home />} />
+        <Route exact path='/' element={<Home />} />
         <Route path='/dashboard' element={<Dashboard />} />
         <Route path='/share/:username' element={<Share />} />
     </Routes>
