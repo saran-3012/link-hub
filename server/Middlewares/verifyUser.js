@@ -1,5 +1,6 @@
 const LinkModel = require("../Models/link");
 const jwt = require('jsonwebtoken');
+require('dotenv').config();
 
 const verifyUser = async (req, res, next) => {
     const token = req.headers['authorization']?.split(' ')[1];

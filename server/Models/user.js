@@ -18,6 +18,18 @@ const userSchema = new mongoose.Schema({
     password: {
         type: String,
         required: true
+    },
+    views: {
+        type: Number,
+        default: 0
+    },
+    bio: {
+        type: String,
+        default: ''
+    },
+    profession: {
+        type: String,
+        default: ''
     }
 });
 
