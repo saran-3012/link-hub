@@ -5,13 +5,20 @@ require('dotenv').config();
 
 const loginUser = async (req, res) => {
 
-    const {email, password} = req.body;
+    const {username, password} = req.body;
 
     try{
-        const user = await UserModel.findOne({ email });
+        const user = await UserModel.findOne(
+            {
+                $or: [
+                    { email: username }, 
+                    {username: username}
+                ]
+            }
+        );
 
         if(!user){
-            return res.status(404).json("Users not found");
+            return res.status(404).json("User not found!");
         }
 
         const isMatch = await bcrypt.compare(password, user.password);
