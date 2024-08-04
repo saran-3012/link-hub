@@ -5,7 +5,7 @@ const viewUser = async (req, res) => {
     try{
         const user = await UserModel.findById(userId);
 
-        res.status(200).json({data: user, message: "User fetched successfully!"});
+        res.status(200).json({ message: "User fetched successfully!", data: {...user, password: ''}});
     }
     catch(err){
         res.status(500).json({message: err.message});
