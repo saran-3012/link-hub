@@ -11,15 +11,22 @@ const verifyUser = async (req, res, next) => {
         return res.status(401).json({message: "No token provided"});
     }
 
-    const link = await LinkModel.findOne({_id: id});
+    try{
 
-    const decoded = jwt.verify(token, process.env.JWT_SECRET_KEY);
-
-    if(link.username !== decoded.username){
-        return res.status(403).json({message: "You are not allowed to perform this action"});
+        const link = await LinkModel.findOne({_id: id});
+    
+        const decoded = jwt.verify(token, process.env.JWT_SECRET_KEY);
+    
+        if(link.username !== decoded.username){
+            return res.status(403).json({message: "You are not allowed to perform this action"});
+        }
+    
+        next();
+    }
+    catch(err){
+        res.status(500).json({message: err.message});
     }
 
-    next();
 };
 
 module.exports = verifyUser;

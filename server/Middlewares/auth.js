@@ -8,12 +8,16 @@ const auth = (req, res, next) => {
         return res.status(401).json({message: "No token provided"});
     }
 
-    const decoded = jwt.verify(token, process.env.JWT_SECRET_KEY);
+    try{
+        const decoded = jwt.verify(token, process.env.JWT_SECRET_KEY);
+        req.body.userId = decoded.userId;
+        req.body.username = decoded.username;
+        next();
+    }
+    catch(err){
+        return res.status(500).json({message: err.message});
+    }
 
-    req.body.userId = decoded.userId;
-    req.body.username = decoded.username;
-
-    next();
 };
 
 module.exports = auth;

@@ -5,7 +5,7 @@ const getLinks = async (req, res) => {
     try{
         const links = await LinkModel.find({username});
 
-        res.status(200).json({data: links})
+        res.status(200).json({data: links, message: "Links fetched Successfully!"})
     }
     catch(err){
         res.status(500).json({message: err.message});

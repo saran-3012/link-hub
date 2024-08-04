@@ -4,7 +4,7 @@ const jwt = require('jsonwebtoken');
 require('dotenv').config();
 
 const registerUser = async (req, res) => {
-    const {name, username, email, password, bio = '', profession = ''} = req.body;
+    const {name, username, email, password} = req.body;
     
     try{
 
@@ -24,9 +24,7 @@ const registerUser = async (req, res) => {
             name,
             username,
             email,
-            password: hashedPassword,
-            bio,
-            profession
+            password: hashedPassword
         });
 
         await newUser.save();
@@ -39,7 +37,7 @@ const registerUser = async (req, res) => {
             process.env.JWT_SECRET_KEY
         );
 
-        res.status(201).json({message: "User registered successfully!", token});
+        res.status(201).json({message: "User registered successfully!", token, name: newUser.name});
     }
     catch(err){
         res.status(500).json({message: err.message})
