@@ -81,6 +81,20 @@ function App() {
     }
   };
 
+  // Logout
+
+  const [isLogoutOpen, setIsLogoutOpen] = useState(false);
+
+  const toggleLogoutPanel = () => {
+    setIsLogoutOpen((prevState) => !prevState);
+  };
+
+  const logout = () => {
+    localStorage.removeItem('jwt-token');
+    setLoggedUserDetails({});
+    setIsLogoutOpen(false);
+  };
+
   useEffect(() => {
     const jwtToken = localStorage.getItem('jwt-token');
     const url = `${import.meta.env.VITE_API_URL}users/view`;
@@ -98,7 +112,10 @@ function App() {
       toggleSignup,
       switchAuth,
       loggedUserDetails,
-      setLoggedUserDetails
+      setLoggedUserDetails,
+      logout,
+      isLogoutOpen,
+      toggleLogoutPanel
     }}>
       <Navbar />
       <AllRoutes />

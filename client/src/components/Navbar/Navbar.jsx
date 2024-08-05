@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useContextAPI } from '../../App';
 import './Navbar.css';
 import AppLogo from '../../assets/app-logo.png';
@@ -11,7 +11,9 @@ import Button from '../Buttons/Button';
 
 const Navbar = () => {
 
-    const { isDarkTheme, toggleTheme, isSidebarOpen, toggleSidebar, toggleSignin, toggleSignup, loggedUserDetails, setLoggedUserDetails } = useContextAPI();
+    const { isDarkTheme, toggleTheme, isSidebarOpen, toggleSidebar, toggleSignin, toggleSignup, loggedUserDetails, setLoggedUserDetails, isLogoutOpen, toggleLogoutPanel, logout } = useContextAPI();
+
+    
 
     return (
         <header className={`navbar container ${isDarkTheme ? 'dark-theme' : ''}`}>
@@ -26,22 +28,33 @@ const Navbar = () => {
                     <li className='navbar__menuitem-pc'>
                         <NavLink className='navbar__link' to="/dashboard">Dashboard</NavLink>
                     </li>
-                    <li className='navbar__menuitem-pc'>
-                        {
-                            loggedUserDetails?.name ?
-                                (
-                                    <Button className={'user-avatar'} buttonName={loggedUserDetails?.name?.split(' ')[0]} >
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" style={{width: '16px', height: '16px'}}>
-                                          <path fillRule="evenodd" d="M4.22 6.22a.75.75 0 0 1 1.06 0L8 8.94l2.72-2.72a.75.75 0 1 1 1.06 1.06l-3.25 3.25a.75.75 0 0 1-1.06 0L4.22 7.28a.75.75 0 0 1 0-1.06Z" clipRule="evenodd" />
+
+                    {
+                        loggedUserDetails?.name ?
+                            (
+                                <li className='navbar__menuitem-pc dropdown'>
+                                    <Button className={'user-avatar'} buttonName={loggedUserDetails?.name?.split(' ')[0]} onClick={toggleLogoutPanel}>
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" style={{ width: '16px', height: '16px' }}>
+                                            <path fillRule="evenodd" d="M4.22 6.22a.75.75 0 0 1 1.06 0L8 8.94l2.72-2.72a.75.75 0 1 1 1.06 1.06l-3.25 3.25a.75.75 0 0 1-1.06 0L4.22 7.28a.75.75 0 0 1 0-1.06Z" clipRule="evenodd" />
                                         </svg>
                                     </Button>
-                                )
-                                :
-                                (
+                                    {
+                                        isLogoutOpen && (
+                                            <div className='dropdown-options-abs'>
+                                                <Button className={'logout-btn'} buttonName={"Logout"} onClick={logout}/>
+                                            </div>
+                                        )
+                                    }
+                                </li>
+                            )
+                            :
+                            (
+                                <li className='navbar__menuitem-pc'>
                                     <Button className={'signup-btn'} buttonName={'Sign Up'} onClick={toggleSignup} />
-                                )
-                        }
-                    </li>
+                                </li>
+                            )
+                    }
+
                     <li className='navbar__menuitem-pc' >
                         <Button className={'theme-btn'} buttonIcon={isDarkTheme ? SunIcon : MoonIcon} onClick={toggleTheme} />
                     </li>

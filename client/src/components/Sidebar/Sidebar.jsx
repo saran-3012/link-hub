@@ -6,7 +6,7 @@ import Button from '../Buttons/Button';
 
 const Sidebar = () => {
 
-    const { isDarkTheme, sidebarRef, toggleSidebar, loggedUserDetails, setLoggedUserDetails } = useContextAPI();
+    const { isDarkTheme, sidebarRef, toggleSidebar, toggleSignup, toggleSignin, loggedUserDetails, setLoggedUserDetails, isLogoutOpen, toggleLogoutPanel, logout } = useContextAPI();
 
     useEffect(() => {
         const mountTime = Date.now();
@@ -42,22 +42,23 @@ const Sidebar = () => {
                     </li>
                     {
                         loggedUserDetails?.name ? (
-                            <li className='sidebar__menuitem'>
-                                <Button className={'user-avatar'} buttonName={loggedUserDetails?.name?.split(' ')[0]} >
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" style={{width: '16px', height: '16px'}}>
-                                        <path fillRule="evenodd" d="M4.22 6.22a.75.75 0 0 1 1.06 0L8 8.94l2.72-2.72a.75.75 0 1 1 1.06 1.06l-3.25 3.25a.75.75 0 0 1-1.06 0L4.22 7.28a.75.75 0 0 1 0-1.06Z" clipRule="evenodd" />
-                                    </svg>
-                                </Button>
-                            </li>
+                            <>
+                                <li className='sidebar__menuitem'>
+                                    <Button className={'user-avatar'} buttonName={loggedUserDetails?.name?.split(' ')[0]} />
+                                </li>
+                                <li className='sidebar__menuitem'>
+                                    <Button className={'logout-btn'} buttonName={"Logout"} onClick={logout}/>
+                                </li>
+                            </>
                         )
                         :
                         (
                             <>
                                 <li className='sidebar__menuitem'>
-                                    <Button className={'signin-btn'} buttonName={'Sign In'} />
+                                    <Button className={'signin-btn'} buttonName={'Sign In'} onClick={toggleSignup}/>
                                 </li>
                                 <li className='sidebar__menuitem'>
-                                    <Button className={'signup-btn'} buttonName={'Sign Up'} />
+                                    <Button className={'signup-btn'} buttonName={'Sign Up'} onClick={toggleSignin}/>
                                 </li>
                             </>
                         )
