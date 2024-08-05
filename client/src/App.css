@@ -1,9 +1,16 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
 :root{
 
-    --clr-light: #eeeeee;
+    --clr-light: #ffffff;
     --clr-dark: #111111;
+
+    --clr-white: #eeeeee;
+    --clr-black: #222222;
+
+    --clr-dirt: #dddddd;
+    --clr-dust: #808080;
+    --clr-smoke: #333333;
 
     --clr-green-50: #f1fcf5;
     --clr-green-100: #defaea;
@@ -17,24 +24,44 @@
     --clr-green-900: #194e32;
     --clr-green-950: #082b1a;
 
+    --clr-blue-50: #eff9ff;
+    --clr-blue-100: #def1ff;
+    --clr-blue-200: #b6e5ff;
+    --clr-blue-300: #75d2ff;
+    --clr-blue-400: #2cbcff;
+    --clr-blue-500: #00a5f9;
+    --clr-blue-600: #0082d4;
+    --clr-blue-700: #0067ab;
+    --clr-blue-800: #00578d;
+    --clr-blue-900: #064974;
+    --clr-blue-950: #042e4d;
+
 }
 
 *, *::after, *::before{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "Poppins", sans-serif;
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
 }
 
 img, svg{
     max-width: 100%;
     max-height: 100%;
     display: block;
+    user-select: none;
 }
 
 .dark-theme{
     --clr-light: #111111;
-    --clr-dark: #eeeeee;
+    --clr-dark: #ffffff;
+
+    --clr-white: #222222;
+    --clr-black: #eeeeee;
+
+    --clr-dirt: #333333;
+    --clr-smoke: #dddddd;
 
     --clr-green-50: #082b1a;
     --clr-green-100: #194e32;
@@ -47,14 +74,36 @@ img, svg{
     --clr-green-800: #bff3d5;
     --clr-green-900: #defaea;
     --clr-green-950: #f1fcf5;
+
+    --clr-blue-50: #042e4d;
+    --clr-blue-100: #064974;
+    --clr-blue-200: #00578d;
+    --clr-blue-300: #0067ab;
+    --clr-blue-400: #0082d4;
+    --clr-blue-500: #00a5f9;
+    --clr-blue-600: #2cbcff;
+    --clr-blue-700: #75d2ff;
+    --clr-blue-800: #b6e5ff;
+    --clr-blue-900: #def1ff;
+    --clr-blue-950: #eff9ff;
 }
 
 
 .container{
     width: 100%;
-    min-height: 100svh;
     padding-left: 1rem;
     padding-right: 1rem;
+}
+
+.section{
+    min-height: calc(100svh - 2.5rem);
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    transition: color 0s 999999999s, background-color 0s 999999999s;
 }
 
 @media only screen and (min-width: 475px) {
@@ -65,6 +114,9 @@ img, svg{
     .container{
         padding-left: 2rem;
         padding-right: 2rem;
+    }
+    .section{
+        min-height: calc(100svh - 3rem);
     }
 }
 

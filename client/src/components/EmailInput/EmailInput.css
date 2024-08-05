@@ -1,0 +1,34 @@
+.emailinput{
+    position: relative;
+    display: flex;
+    align-items: center;
+    border: 1px solid var(--clr-dust);
+    border-radius: 0.35rem;
+}
+
+.emailinput-label{
+    position: absolute;
+    left: 0.5rem;
+    color: var(--clr-smoke);
+    background-color: var(--clr-white);
+    transition: all 200ms;
+}
+
+.emailinput-input{
+    padding: 0.5rem;
+    flex-grow: 1;
+    color: var(--clr-dark);
+    background-color: transparent;
+    border: none;
+    outline: none;
+}
+
+.emailinput:has(.emailinput-input:focus){
+    border-color: var(--clr-blue-700);
+    box-shadow: 0 4px 4px -6px var(--clr-blue-700);
+}
+
+.emailinput:has(.emailinput-input:focus) > .emailinput-label, .emailinput:has(.emailinput-input:not(:placeholder-shown)) > .emailinput-label{
+    transform: translateY(-100%) scale(0.75);
+    transform-origin: left;
+}

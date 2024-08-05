@@ -22,6 +22,18 @@
     background-color: var(--clr-green-400);
 }
 
+.card:nth-child(even){
+    background-color: var(--clr-blue-50);
+}
+
+.card:nth-child(even):hover{
+    background-color: var(--clr-blue-100);
+}
+
+.card:nth-child(even) > .card__line{
+    background-color: var(--clr-blue-400);
+}
+
 .card__link{
     display: flex;
     align-items: center;

@@ -1,0 +1,34 @@
+.textinput{
+    position: relative;
+    display: flex;
+    align-items: center;
+    border: 1px solid var(--clr-dust);
+    border-radius: 0.35rem;
+}
+
+.textinput-label{
+    position: absolute;
+    left: 0.5rem;
+    color: var(--clr-smoke);
+    background-color: var(--clr-white);
+    transition: all 200ms;
+}
+
+.textinput-input{
+    padding: 0.5rem;
+    flex-grow: 1;
+    color: var(--clr-dark);
+    background-color: transparent;
+    border: none;
+    outline: none;
+}
+
+.textinput:has(.textinput-input:focus){
+    border-color: var(--clr-blue-700);
+    box-shadow: 0 4px 4px -6px var(--clr-blue-700);
+}
+
+.textinput:has(.textinput-input:focus) > .textinput-label, .textinput:has(.textinput-input:not(:placeholder-shown)) > .textinput-label{
+    transform: translateY(-100%) scale(0.75);
+    transform-origin: left;
+}

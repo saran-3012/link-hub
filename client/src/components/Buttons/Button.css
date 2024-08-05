@@ -1,0 +1,137 @@
+.btn{
+    background-color: var(--btn-clr);
+    color: var(--clr-dark);
+    font-weight: 500;
+    outline: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+    gap: 0.5rem;
+    padding: 0.25rem 1rem;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    transition: all 100ms;
+}
+
+.btn-icon{
+    width: 1.5rem;
+}
+
+.btn-name{
+    
+}
+
+.signin-btn{
+    border: 1.5px solid var(--clr-green-600);
+}
+
+.signin-btn:hover{
+    color: var(--clr-light);
+    background-color: var(--clr-green-600);
+}
+
+.signup-btn{
+    color: var(--clr-light);
+    background-color: var(--clr-green-600);
+    border: 1.5px solid var(--clr-green-600);
+}
+
+.signup-btn:hover{
+    color: var(--clr-dark);
+    background-color: var(--btn-clr);
+    border: 1.5px solid var(--clr-green-600);
+}
+
+.theme-btn{
+    padding: 0;
+    border: none;
+}
+
+.menu-btn{
+    height: 1.5rem;
+    width: 1.5rem;
+    padding: 0;
+    border: none;
+}
+
+.hero-btn{
+    text-wrap: nowrap;
+    color: var(--clr-light);
+    border: 1.5px solid var(--clr-blue-600);
+    background-color: var(--clr-blue-600);
+}
+
+.hero-btn:hover{
+    color: var(--clr-dark);
+    background-color: var(--clr-light);
+}
+
+.hero-btn-icon{
+    width: 2rem;
+}
+
+.cancel-btn{
+    text-wrap: nowrap;
+    color: var(--clr-light);
+    border: 1.5px solid var(--clr-blue-600);
+    background-color: var(--clr-blue-600);
+}
+
+.cancel-btn:hover{
+    color: var(--clr-dark);
+    background-color: transparent;
+}
+
+.auth-btn{
+    text-wrap: nowrap;
+    color: var(--clr-light);
+    border: 1.5px solid var(--clr-green-600);
+    background-color: var(--clr-green-600);
+}
+
+.auth-btn:hover{
+    color: var(--clr-dark);
+    background-color: transparent;
+}
+
+.user-avatar{
+    border-radius: 1rem;
+    border: 1.5px solid var(--clr-dust);
+    color: var(--clr-smoke)
+}
+
+
+@media only screen and (min-width: 475px) {
+
+}
+  
+@media only screen and (min-width: 640px) {
+    .btn-icon{
+        width: 2rem;
+    }
+    .menu-btn{
+        height: 2rem;
+        width: 2rem;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+
+}
+
+@media only screen and (min-width: 1024px) {
+
+}
+
+@media only screen and (min-width: 1200px) {
+
+}
+
+@media only screen and (min-width: 1440px) {
+
+}
+
+@media only screen and (min-width: 1536px) {
+
+}

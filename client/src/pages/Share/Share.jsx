@@ -14,6 +14,10 @@ const Share = () => {
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState(null);
     const [ownerName, setOwnerName] = useState('');
+    const [ownerBio, setOwnerBio] = useState('');
+    const [ownerProfession, setOwnerProfession] = useState('');
+
+    console.log(ownerBio, ownerProfession);
 
     const fetchLinks = async (url) => {
         setIsLoading(true);
@@ -21,6 +25,8 @@ const Share = () => {
         if(storedData){
             setLinks(storedData.data);
             setOwnerName(storedData.name);
+            setOwnerBio(storedData.bio);
+            setOwnerProfession(storedData.profession);
             setIsLoading(false);
             return;
         }
@@ -32,6 +38,9 @@ const Share = () => {
             }
             setLinks(resJson.data);
             setOwnerName(resJson.name);
+            setOwnerBio(resJson.bio);
+            setOwnerProfession(resJson.profession);
+            console.log(resJson)
             localStorage.setItem(`user-data:${username}`, JSON.stringify(resJson));
         }
         catch(err){
@@ -49,12 +58,18 @@ const Share = () => {
     }, [username]);
 
     return (
-        <section className={`share container ${isDarkTheme? 'dark-theme' : ''}`}>
+        <section className={`share section container ${isDarkTheme? 'dark-theme' : ''}`}>
             <h2 className='share__header'>{ownerName}</h2>
+            {
+                ownerProfession && <h3>{ownerProfession}</h3>
+            }
+            {
+                ownerBio && <p>{ownerBio}</p>
+            }
             <div className='share__container'>
                 {
                     links.map((link) => (
-                        <Card linkname={link.linkname} linkurl={link.linkurl} linkid={link._id} controls={false}/>
+                        <Card key={link._id} linkname={link.linkname} linkurl={link.linkurl} linkid={link._id} controls={false}/>
                     ))
                 }
             </div>
