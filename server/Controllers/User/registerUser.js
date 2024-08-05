@@ -37,7 +37,15 @@ const registerUser = async (req, res) => {
             process.env.JWT_SECRET_KEY
         );
 
-        res.status(201).json({message: "User registered successfully!", token, data: {...newUser, password: ''}});
+        res.status(201).json({message: "User registered successfully!", token, data: {
+            id: newUser._id,
+            name: newUser.name,
+            username: newUser.username,
+            email: newUser.email,
+            bio: newUser.bio,
+            profession: newUser.profession,
+            views: newUser.views
+        }});
     }
     catch(err){
         res.status(500).json({message: err.message})
