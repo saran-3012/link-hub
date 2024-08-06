@@ -17,7 +17,7 @@ const verifyUser = async (req, res, next) => {
     
         const decoded = jwt.verify(token, process.env.JWT_SECRET_KEY);
     
-        if(link.username !== decoded.username){
+        if(link.userId !== decoded.userId){
             return res.status(403).json({message: "You are not allowed to perform this action"});
         }
     

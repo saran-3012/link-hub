@@ -1,7 +1,7 @@
 const UserModel = require('../../Models/user');
 
 const updateUser = async (req, res) => {
-    const {userId, name, bio, profession} = req.body;
+    const {userId, name, username, email, bio, profession} = req.body;
 
     try{
 
@@ -13,6 +13,14 @@ const updateUser = async (req, res) => {
 
         if(name){
             updateDetails.name = name;
+        }
+
+        if(username){
+            updateDetails.username = username;
+        }
+
+        if(email){
+            updateDetails.email = email;
         }
 
         if(bio){

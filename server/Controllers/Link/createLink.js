@@ -2,9 +2,10 @@ const LinkModel = require('../../Models/link');
 
 const createLink = async (req, res) => {
 
+    const {linkname, linkurl, userId} = req.body;
     try{
 
-        const newLink = new LinkModel(req.body);
+        const newLink = new LinkModel({linkname, linkurl, userId});
 
         await newLink.save();
 

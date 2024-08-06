@@ -14,7 +14,7 @@ const shareLinks = async (req, res) => {
             return res.status(404).json({message: "User not found!"});
         }
 
-        const links = await LinkModel.find({username});
+        const links = await LinkModel.find({userId: user.userId});
 
         res.status(200).json({message: "Links fetched successfully!" ,data: links, name: user.name, bio: user.bio, profession: user.profession});
     }

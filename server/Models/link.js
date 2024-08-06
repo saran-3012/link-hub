@@ -9,10 +9,11 @@ const linkSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    username: {
+    userId: {
         type: String,
         required: true
     }
+
 });
 
 const LinkModel = mongoose.model("Link", linkSchema);

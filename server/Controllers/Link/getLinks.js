@@ -1,9 +1,9 @@
 const LinkModel = require('../../Models/link');
 
 const getLinks = async (req, res) => {
-    const {username} = req.body;
+    const {userId} = req.body;
     try{
-        const links = await LinkModel.find({username});
+        const links = await LinkModel.find({userId});
 
         res.status(200).json({data: links, message: "Links fetched Successfully!"})
     }
