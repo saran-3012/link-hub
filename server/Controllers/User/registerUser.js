@@ -13,7 +13,7 @@ const registerUser = async (req, res) => {
             return res.status(409).json({message: "Username already exists!"});
         }
 
-        const existingEmail = await UserModel.findOne({ email });
+        const existingEmail = await UserModel.findOne({ email: email.toLowerCase() });
         if(existingEmail){
             return res.status(409).json({message: "Email already exists!"});
         }
@@ -23,7 +23,7 @@ const registerUser = async (req, res) => {
         const newUser = new UserModel({
             name,
             username,
-            email,
+            email: email.toLowerCase(),
             password: hashedPassword
         });
 

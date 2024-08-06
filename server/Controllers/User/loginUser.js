@@ -11,7 +11,7 @@ const loginUser = async (req, res) => {
         const user = await UserModel.findOne(
             {
                 $or: [
-                    { email: username }, 
+                    {email: username.toLowerCase()}, 
                     {username: username}
                 ]
             }
