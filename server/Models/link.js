@@ -11,7 +11,8 @@ const linkSchema = new mongoose.Schema({
     },
     userId: {
         type: String,
-        required: true
+        required: true,
+        ref: 'User'
     }
 
 });
