@@ -14,7 +14,9 @@ const auth = (req, res, next) => {
             return res.status(401).json({message: "Invalid token!"});
         }
         req.body.userId = decoded.userId;
-        req.body.username = decoded.username;
+        if(!req.body.username){
+            req.body.username = decoded.username;
+        }
         next();
     }
     catch(err){

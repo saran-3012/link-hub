@@ -5,7 +5,7 @@ const updateUser = async (req, res) => {
 
     try{
 
-        if(!name && !bio && !profession){
+        if(!name && !username && !email && !bio && !profession){
             return res.status(422).json({message : "No details provided for updation"});
         }
 
