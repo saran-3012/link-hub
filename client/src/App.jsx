@@ -73,7 +73,7 @@ function App() {
   const [isSigninOpen, setIsSigninOpen] = useState(false);
 
   const toggleSignin = () => {
-    if (loggedUserDetails.name && !isSigninOpen) {
+    if (loggedUserDetails?.name && !isSigninOpen) {
       return;
     }
     setIsSigninOpen((prevState) => !prevState);
@@ -84,7 +84,7 @@ function App() {
   const [isSignupOpen, setIsSignupOpen] = useState(false);
 
   const toggleSignup = () => {
-    if (loggedUserDetails.name && !isSignupOpen) {
+    if (loggedUserDetails?.name && !isSignupOpen) {
       return;
     }
     setIsSignupOpen((prevState) => !prevState);

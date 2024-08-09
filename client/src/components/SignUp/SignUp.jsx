@@ -64,7 +64,7 @@ const SignUp = () => {
       return;
     }
 
-    if(signupDetails.password !== signupDetails.confirmPassword){
+    if(signupDetails?.password !== signupDetails?.confirmPassword){
       setValidationError({confirmPassword: "Password does not match!"});
       return;
     }
@@ -79,17 +79,17 @@ const SignUp = () => {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-          name: signupDetails.name, 
-          username: signupDetails.username, 
-          email: signupDetails.email, 
-          password: signupDetails.password
+          name: signupDetails?.name, 
+          username: signupDetails?.username, 
+          email: signupDetails?.email, 
+          password: signupDetails?.password
         })
       });
   
       const resJson = await res.json();
 
       if(res.status === 409){
-        const errorKey = resJson.message?.split(' ')[0].toLowerCase();
+        const errorKey = resJson.message?.split(' ')[0]?.toLowerCase();
         setValidationError({[errorKey]: resJson.message});
         throw new Error(resJson.message);
       }
