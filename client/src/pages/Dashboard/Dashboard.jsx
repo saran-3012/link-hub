@@ -16,7 +16,7 @@ const Dashboard = () => {
 
 
     const suggestLogIn = () => {
-        if (loggedUserDetails.name !== '') {
+        if (loggedUserDetails?.name !== '') {
             return;
         }
         toggleSignup();
@@ -106,14 +106,14 @@ const Dashboard = () => {
                 )
             }
             {
-                editLinkDetails._id && (
+                editLinkDetails?._id && (
                     <Popup popupToggle={() => setEditLinkDetails({})}>
                         <EditLink />
                     </Popup>
                 )
             }
             {
-                deleteLinkDetails._id && (
+                deleteLinkDetails?._id && (
                     <Popup popupToggle={() => setDeleteLinkDetails({})}>
                         <DeleteLink />
                     </Popup>
