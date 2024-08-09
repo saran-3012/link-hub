@@ -12,6 +12,8 @@ linkRoutes.get('/', auth, getLinks);
 linkRoutes.post('/create', auth, createLink);
 linkRoutes.patch('/update/:id', auth, verifyUser, updateLink);
 linkRoutes.delete('/delete/:id', auth, verifyUser, deleteLink);
-linkRoutes.get('/:username', shareLinks);
+linkRoutes.get('/:username/:viewed', shareLinks);
 
 module.exports = linkRoutes;
+
+
