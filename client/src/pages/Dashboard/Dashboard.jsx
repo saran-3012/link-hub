@@ -16,7 +16,7 @@ const Dashboard = () => {
 
 
     const suggestLogIn = () => {
-        if (loggedUserDetails.name) {
+        if (loggedUserDetails.name !== '') {
             return;
         }
         toggleSignup();
@@ -42,7 +42,6 @@ const Dashboard = () => {
                 throw new Error("Error while fetching data!");
             }
             setUserLinks(resJson.data);
-            console.log(resJson)
         }
         catch (err) {
             setError(err.message);
@@ -54,7 +53,7 @@ const Dashboard = () => {
         const url = `${import.meta.env.VITE_API_URL}links/`;
         const jwtToken = localStorage.getItem('jwt-token');
         fetchUserLinks(url, jwtToken);
-    }, [loggedUserDetails.id]);
+    }, [loggedUserDetails?.id]);
 
     if (!loggedUserDetails?.name) {
         return (

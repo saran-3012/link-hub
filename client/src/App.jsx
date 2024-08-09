@@ -34,7 +34,15 @@ function App() {
 
   // Logged in 
 
-  const [loggedUserDetails, setLoggedUserDetails] = useState({});
+  const [loggedUserDetails, setLoggedUserDetails] = useState({
+    bio : "",
+    email : "",
+    id : "",
+    name : "",
+    profession : "",
+    username : "",
+    views : 0
+  });
 
   const getUserDetails = async (url, jwtToken) => {
     if (!jwtToken) {
@@ -50,7 +58,8 @@ function App() {
         }
       });
       const resJson = await res.json();
-      setLoggedUserDetails(resJson.data)
+      setLoggedUserDetails(resJson.data);
+      setIsSignupOpen(false);
     }
     catch (err) {
       console.log(err.message);
@@ -137,7 +146,7 @@ function App() {
 
   const toggleShareLinkOpen = () => {
     setIsShareLinkOpen((prevState) => !prevState);
-  };  
+  };
 
   return (
     <UserContext.Provider value={{
@@ -154,7 +163,7 @@ function App() {
       logout,
       isProfileEditMode,
       toggleProfileEditMode,
-      userLinks, 
+      userLinks,
       setUserLinks,
       isAddLinkOpen,
       toggleAddLinkOpen,
