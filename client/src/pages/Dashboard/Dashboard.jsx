@@ -28,6 +28,10 @@ const Dashboard = () => {
 
     const fetchUserLinks = async (url, jwtToken) => {
 
+        if(!loggedUserDetails?.id){
+            return;
+        }
+
         try {
             const res = await fetch(url, {
                 method: "GET",
