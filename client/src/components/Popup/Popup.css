@@ -28,10 +28,10 @@
 }
 
 .error-msg{
-    color: red;
+    color: var(--clr-red);
     font-size: 0.8rem;
 } 
 
 .input-error{
-    border-color: red !important;
+    border-color: var(--clr-red) !important;
 }

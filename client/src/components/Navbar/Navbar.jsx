@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useContextAPI } from '../../App';
 import './Navbar.css';
 import AppLogo from '../../assets/app-logo.png';
@@ -11,9 +11,30 @@ import Button from '../Buttons/Button';
 
 const Navbar = () => {
 
-    const { isDarkTheme, toggleTheme, isSidebarOpen, toggleSidebar, toggleSignin, toggleSignup, loggedUserDetails, setLoggedUserDetails, isLogoutOpen, toggleLogoutPanel, logout } = useContextAPI();
+    const { isDarkTheme, toggleTheme, isSidebarOpen, toggleSidebar, toggleSignin, toggleSignup, loggedUserDetails, setLoggedUserDetails, logout } = useContextAPI();
 
-    
+    const [isDropdownPanelOpen, setIsDropdownPanelOpen] = useState(false);
+
+    const dropdownRef = useRef(null);
+
+    const toggleDropdownPanel = () => {
+        setIsDropdownPanelOpen((prevState) => !prevState);
+    };
+
+    const captureMouseClick = (e) => {
+        if(dropdownRef.current && !dropdownRef.current.contains(e.target)){
+            setIsDropdownPanelOpen(false);
+        }
+    };
+
+    useEffect(() => {
+        if(isDropdownPanelOpen){
+            document.addEventListener('click', captureMouseClick);
+        }
+        else{
+            document.removeEventListener('click', captureMouseClick);
+        }
+    }, [isDropdownPanelOpen]);
 
     return (
         <header className={`navbar container ${isDarkTheme ? 'dark-theme' : ''}`}>
@@ -32,15 +53,15 @@ const Navbar = () => {
                     {
                         loggedUserDetails?.name ?
                             (
-                                <li className='navbar__menuitem-pc dropdown'>
-                                    <Button className={'user-avatar'} buttonName={loggedUserDetails?.name?.split(' ')[0]} onClick={toggleLogoutPanel}>
+                                <li className='navbar__menuitem-pc dropdown' ref={dropdownRef}>
+                                    <Button className={'user-avatar'} buttonName={loggedUserDetails?.name?.split(' ')[0]} onClick={toggleDropdownPanel}>
                                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" style={{ width: '16px', height: '16px' }}>
                                             <path fillRule="evenodd" d="M4.22 6.22a.75.75 0 0 1 1.06 0L8 8.94l2.72-2.72a.75.75 0 1 1 1.06 1.06l-3.25 3.25a.75.75 0 0 1-1.06 0L4.22 7.28a.75.75 0 0 1 0-1.06Z" clipRule="evenodd" />
                                         </svg>
                                     </Button>
                                     {
-                                        isLogoutOpen && (
-                                            <div className='dropdown-options-abs'>
+                                        isDropdownPanelOpen && (
+                                            <div className='dropdown-options'>
                                                 <Button className={'logout-btn'} buttonName={"Logout"} onClick={logout}/>
                                             </div>
                                         )

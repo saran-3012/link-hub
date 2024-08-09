@@ -1,4 +1,5 @@
 .card{
+    padding-right: 0.5rem;
     display: flex;
     align-items: center;
     width: 100%;
@@ -6,7 +7,6 @@
     background-color: var(--clr-green-50);
     border-radius: 0.25rem;
     box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
     cursor: pointer;
     transition: all 150ms;
 }
@@ -19,6 +19,7 @@
 .card__line{
     height: 100%;
     width: 0.5rem;
+    border-radius: 0.25rem 0 0 0.25rem;
     background-color: var(--clr-green-400);
 }
 
@@ -35,6 +36,7 @@
 }
 
 .card__link{
+    cursor: initial;
     display: flex;
     align-items: center;
     justify-content: flex-start;
@@ -45,6 +47,40 @@
     text-align: left;
     padding: 1rem;
 }
+
+.card__linktext{
+    cursor: pointer;
+}
+
+.card__menu{
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.card__menu-options{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    right: 2rem;
+    z-index: 100;
+    background-color: var(--clr-light);
+    color: var(--clr-dark);
+    box-shadow: 1px 1px 8px var(--clr-dirt);
+    border-radius: 0.25rem;
+    padding: 0.5rem;
+    gap: 0.25rem;
+}
+
+.card__menu-option{
+    border-radius: 0.25rem;
+    padding: 0.2rem 0.3rem;
+}
+
+.card__menu-option:hover{
+    background-color: var(--clr-white);
+}
+
 
 @media only screen and (min-width: 475px) {
     .card{

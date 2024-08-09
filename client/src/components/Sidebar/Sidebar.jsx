@@ -6,7 +6,7 @@ import Button from '../Buttons/Button';
 
 const Sidebar = () => {
 
-    const { isDarkTheme, sidebarRef, toggleSidebar, toggleSignup, toggleSignin, loggedUserDetails, setLoggedUserDetails, isLogoutOpen, toggleLogoutPanel, logout } = useContextAPI();
+    const { isDarkTheme, sidebarRef, toggleSidebar, toggleSignup, toggleSignin, loggedUserDetails, setLoggedUserDetails, logout } = useContextAPI();
 
     useEffect(() => {
         const mountTime = Date.now();
@@ -55,10 +55,10 @@ const Sidebar = () => {
                         (
                             <>
                                 <li className='sidebar__menuitem'>
-                                    <Button className={'signin-btn'} buttonName={'Sign In'} onClick={toggleSignup}/>
+                                    <Button className={'signin-btn'} buttonName={'Sign In'} onClick={toggleSignin}/>
                                 </li>
                                 <li className='sidebar__menuitem'>
-                                    <Button className={'signup-btn'} buttonName={'Sign Up'} onClick={toggleSignin}/>
+                                    <Button className={'signup-btn'} buttonName={'Sign Up'} onClick={toggleSignup}/>
                                 </li>
                             </>
                         )

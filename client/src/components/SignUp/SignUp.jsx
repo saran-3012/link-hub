@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import './SignUp.css';
 import { useContextAPI } from '../../App';
+import useValidate from '../../hooks/useValidate';
 import TextInput from '../TextInput/TextInput';
-import EmailInput from '../EmailInput/EmailInput';
 import PasswordInput from '../PasswordInput/PasswordInput';
 import Button from '../Buttons/Button';
 import appLogoStacked from '../../assets/app-logo-stacked.png';
-import useValidate from '../../hooks/useValidate';
 
 const SignUp = () => {
   const { toggleSignup, switchAuth, setLoggedUserDetails } = useContextAPI();
@@ -118,11 +117,9 @@ const SignUp = () => {
         <div className='signup-form'>
           <TextInput inputName={"name"} labelName={"Name"} id={"signup-name"} onChange={handleChange} errorMessage={validationError.name}/>
           <TextInput inputName={"username"} labelName={"Username"} id={"signup-username"} onChange={handleChange} errorMessage={validationError.username}/>
-          <EmailInput inputName={"email"} labelName={"Email"} id={"signup-email"} onChange={handleChange} errorMessage={validationError.email}/>
+          <TextInput inputName={"email"} labelName={"Email"} id={"signup-email"} onChange={handleChange} errorMessage={validationError.email}/>
           <PasswordInput inputName={"password"} labelName={"Password"} id={"signup-password"} onChange={handleChange} errorMessage={validationError.password}/>
           <PasswordInput inputName={"confirmPassword"} labelName={"Confirm Password"} id={"signup-confirm-password"} onChange={handleChange} errorMessage={validationError.confirmPassword}/>
-          {/* <TextInput inputName={"profession"} labelName={"Profession/Passion"} id={"signup-profession"} />
-          <TextInput inputName={"bio"} labelName={"Bio"} id={"signup-bio"} /> */}
         </div>
         <div className='signup-img'>
           <img src={appLogoStacked} alt="App Logo" />

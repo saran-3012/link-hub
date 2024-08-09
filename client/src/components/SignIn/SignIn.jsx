@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import './SignIn.css';
 import { useContextAPI } from '../../App';
 import TextInput from '../TextInput/TextInput';
-import EmailInput from '../EmailInput/EmailInput';
 import PasswordInput from '../PasswordInput/PasswordInput';
 import Button from '../Buttons/Button';
 import appLogoStacked from '../../assets/app-logo-stacked.png';

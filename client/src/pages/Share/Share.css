@@ -1,14 +1,35 @@
 .share{
+    padding-top: 1rem;
     background-color: var(--clr-light);
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.share__avatar{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 5rem;
+    height: 5rem;
+    border-radius: 100%;
+    background: linear-gradient(138deg, rgba(0,212,255,1) 0%, rgba(15,184,176,1) 50%, rgba(32,153,87,1) 100%);
+    color: var(--clr-light);
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.share__username{
+    font-size: clamp(1.125rem, 5vw, 2.5rem); 
+    color: var(--clr-green-950);
+}
+
+.share__userprofession{
 
 }
 
-.share__header{
-    font-size: clamp(1.125rem, 5vw, 2.5rem); 
-    color: var(--clr-green-950);
+.share__userbio{
+    margin-top: 0.25rem;
 }
 
 .share__container{

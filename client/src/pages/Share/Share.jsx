@@ -13,23 +13,18 @@ const Share = () => {
     const [links, setLinks] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState(null);
+    const [ownerDetails, setOwnerDetails] = useState({
+        name: '',
+        bio: '',
+        profession: ''
+    });
     const [ownerName, setOwnerName] = useState('');
     const [ownerBio, setOwnerBio] = useState('');
     const [ownerProfession, setOwnerProfession] = useState('');
 
-    console.log(ownerBio, ownerProfession);
-
     const fetchLinks = async (url) => {
+
         setIsLoading(true);
-        const storedData = JSON.parse(localStorage.getItem(`user-data:${username}`));
-        if(storedData){
-            setLinks(storedData.data);
-            setOwnerName(storedData.name);
-            setOwnerBio(storedData.bio);
-            setOwnerProfession(storedData.profession);
-            setIsLoading(false);
-            return;
-        }
         try{
             const res = await fetch(url);
             const resJson = await res.json();
@@ -37,11 +32,8 @@ const Share = () => {
                 throw new Error("Error while fetching data!");
             }
             setLinks(resJson.data);
-            setOwnerName(resJson.name);
-            setOwnerBio(resJson.bio);
-            setOwnerProfession(resJson.profession);
-            console.log(resJson)
-            localStorage.setItem(`user-data:${username}`, JSON.stringify(resJson));
+            setOwnerDetails(resJson.user);
+            localStorage.setItem(`viewed:${username}`, 'true');
         }
         catch(err){
             setError(err.message);
@@ -53,23 +45,28 @@ const Share = () => {
     };
 
     useEffect(() => {
-        const url = `${import.meta.env.VITE_API_URL}links/${username}`;
+
+        const isViewed = localStorage.getItem(`viewed:${username}`) || 'false';
+
+        const url = `${import.meta.env.VITE_API_URL}links/${encodeURIComponent(username)}/${isViewed}`;
+
         fetchLinks(url);
     }, [username]);
 
     return (
         <section className={`share section container ${isDarkTheme? 'dark-theme' : ''}`}>
-            <h2 className='share__header'>{ownerName}</h2>
+            <div className='share__avatar'>{ownerDetails?.name[0]?.toUpperCase()}</div>
+            <h2 className='share__username'>{ownerDetails.name}</h2>
             {
-                ownerProfession && <h3>{ownerProfession}</h3>
+                ownerDetails.profession && <h3 className='share__userprofession'>{ownerDetails.profession}</h3>
             }
             {
-                ownerBio && <p>{ownerBio}</p>
+                ownerDetails.bio && <p className='share__userbio'>{ownerDetails.bio}</p>
             }
             <div className='share__container'>
                 {
                     links.map((link) => (
-                        <Card key={link._id} linkname={link.linkname} linkurl={link.linkurl} linkid={link._id} controls={false}/>
+                        <Card key={link._id} linkDetails={link}/>
                     ))
                 }
             </div>

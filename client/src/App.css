@@ -36,6 +36,9 @@
     --clr-blue-900: #064974;
     --clr-blue-950: #042e4d;
 
+    --clr-orange: #ffa500;
+    --clr-red: #ff3131;
+
 }
 
 *, *::after, *::before{
@@ -51,6 +54,10 @@ img, svg{
     max-height: 100%;
     display: block;
     user-select: none;
+}
+
+input:disabled{
+    cursor: not-allowed;
 }
 
 .dark-theme{
@@ -107,9 +114,13 @@ img, svg{
     align-items: center;
 }
 
-.dropdown-options-abs{
+.dropdown-options{
     position: absolute;
-    top: 110%;
+    background-color: var(--clr-light);
+    padding: 0.5rem;
+    top: 125%;
+    border-radius: 0.25rem;
+    box-shadow: 1px 1px 4px var(--clr-dirt);
 }
 
 input:-webkit-autofill,
