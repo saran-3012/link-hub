@@ -19,8 +19,6 @@ const shareLinks = async (req, res) => {
 
         const links = await LinkModel.find({userId: user._id.toString()});
 
-        console.log(links)
-
         res.status(200).json({message: "Links fetched successfully!" ,data: links, name: user.name, bio: user.bio, profession: user.profession});
     }
     catch(err){
