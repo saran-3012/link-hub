@@ -5,7 +5,7 @@ const shareLinks = async (req, res) => {
     const {username, viewed} = req.params;
     try{
 
-        const incrementValue = viewed === 'true' ? 1 : 0;
+        const incrementValue = viewed === 'true' ? 0 : 1;
 
         const user = await UserModel.findOneAndUpdate(
             { username },
