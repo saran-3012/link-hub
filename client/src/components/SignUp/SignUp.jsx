@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import './SignUp.css';
 import { useContextAPI } from '../../App';
 import useValidate from '../../hooks/useValidate';
 import TextInput from '../TextInput/TextInput';

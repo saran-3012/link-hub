@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import './SignIn.css';
 import { useContextAPI } from '../../App';
 import TextInput from '../TextInput/TextInput';
 import PasswordInput from '../PasswordInput/PasswordInput';

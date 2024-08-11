@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useContextAPI } from '../../App';
-import './EditProfile.css';
 import useValidate from '../../hooks/useValidate';
 import TextInput from '../TextInput/TextInput';
 import Button from '../Buttons/Button';
