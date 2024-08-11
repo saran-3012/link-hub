@@ -9,8 +9,8 @@ const Popup = ({ popupToggle, children }) => {
   const { isDarkTheme } = useContextAPI();
 
   return createPortal(
-    <div className={`popup ${isDarkTheme ? 'dark-theme' : ''}`} onClick={popupToggle}>
-      <div className='popup__wrapper' onClick={(e) => e.stopPropagation()}>
+    <div className={`popup ${isDarkTheme ? 'dark-theme' : ''}`} onMouseDown={popupToggle}>
+      <div className='popup__wrapper' onMouseDown={(e) => e.stopPropagation()}>
         {
           children
         }

@@ -68,20 +68,20 @@ const SignIn = () => {
   };
 
   return (
-    <form className='signin' onSubmit={handleSubmit} autoComplete='off'>
-      <h2 className='signin-header'>SIGN IN</h2>
-      <div className='signin-container'>
-        <div className='signin-form'>
+    <form className='auth' onSubmit={handleSubmit} autoComplete='off'>
+      <h2 className='auth-header'>SIGN IN</h2>
+      <div className='auth-container'>
+        <div className='auth-form'>
           <TextInput inputName={"username"} labelName={"Username/Email"} id={"signin-username-email"} onChange={handleChange} errorMessage={validationError.username}/>
           <PasswordInput inputName={"password"} labelName={"Password"} id={"signin-password"} onChange={handleChange} errorMessage={validationError.password}/>
           <p className='auth-switch-text'>Don't have an account? <span className='auth-switch' onClick={switchAuth}>Register</span></p>
-          <div className='signin-buttons'>
+          <div className='auth-buttons'>
             <Button buttonName={"Cancel"} className={"cancel-btn"} onClick={toggleSignin} />
             <Button buttonName={"Login"} buttonType={'submit'} className={"auth-btn"} onClick={handleSubmit}/>
           </div>
         </div>
-        <div className='signin-img'>
-          <img src={appLogoStacked} alt="App Logo" />
+        <div className='auth-img_container'>
+          <img className='auth-img' src={appLogoStacked} alt="App Logo" />
         </div>
       </div>
 

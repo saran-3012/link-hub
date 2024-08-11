@@ -60,6 +60,7 @@ function App() {
       const resJson = await res.json();
       setLoggedUserDetails(resJson.data);
       setIsSignupOpen(false);
+      setIsSigninOpen(false);
     }
     catch (err) {
       console.log(err.message);

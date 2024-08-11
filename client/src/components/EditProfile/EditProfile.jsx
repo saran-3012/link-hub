@@ -52,11 +52,45 @@ const EditProfile = () => {
     ]
   };
 
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     const [validationResult, hasErrors] = useValidate(editedDetails, validationConfig);
     if (hasErrors) {
       setValidationError(validationResult);
+      return;
+    }
+
+    const patchUserDetails = {};
+    let isEdited = false;
+
+    if(loggedUserDetails.name !== editedDetails.name){
+      patchUserDetails.name = editedDetails.name;
+      isEdited = true;
+    }
+
+    if(loggedUserDetails.username !== editedDetails.username){
+      patchUserDetails.username = editedDetails.username;
+      isEdited = true;
+    }
+
+    if(loggedUserDetails.email !== editedDetails.email){
+      patchUserDetails.email = editedDetails.email;
+      isEdited = true;
+    }
+
+    if(loggedUserDetails.profession !== editedDetails.profession){
+      patchUserDetails.profession = editedDetails.profession;
+      isEdited = true;
+    }
+
+    if(loggedUserDetails.bio !== editedDetails.bio){
+      patchUserDetails.bio = editedDetails.bio;
+      isEdited = true;
+    }
+
+    if(!isEdited){
+      toggleProfileEditMode();
       return;
     }
 
@@ -71,7 +105,7 @@ const EditProfile = () => {
           'Content-Type': 'application/json',
           "Authorization": `Bearer ${jwtToken}`
         },
-        body: JSON.stringify(editedDetails)
+        body: JSON.stringify(patchUserDetails)
       });
 
       const resJson = await res.json();
@@ -91,21 +125,21 @@ const EditProfile = () => {
   };
 
   return (
-    <form className='editprofile' onSubmit={handleSubmit} autoComplete='off'>
-      <h2 className='editprofile-header'>Edit Profile</h2>
-      <div className='editprofile-container'>
-        <div className='editprofile-form'>
+    <form className='auth' onSubmit={handleSubmit} autoComplete='off'>
+      <h2 className='auth-header'>Edit Profile</h2>
+      <div className='auth-container'>
+        <div className='auth-form'>
           <TextInput inputName={"name"} labelName={"Name"} id={"editprofile-name"} defaultValue={loggedUserDetails.name} onChange={handleChange} errorMessage={validationError.name} />
           <TextInput inputName={"username"} labelName={"Username"} id={"editprofile-username"} defaultValue={loggedUserDetails.username} onChange={handleChange} errorMessage={validationError.username} />
           <TextInput inputName={"email"} labelName={"Email"} id={"editprofile-email"} defaultValue={loggedUserDetails.email} onChange={handleChange} errorMessage={validationError.email} />
           <TextInput inputName={"profession"} labelName={"Profession/Passion"} id={"editprofile-profession"} defaultValue={loggedUserDetails.profession} onChange={handleChange} errorMessage={validationError.profession} />
           <TextInput inputName={"bio"} labelName={"Bio"} id={"editprofile-bio"} defaultValue={loggedUserDetails.bio} onChange={handleChange} errorMessage={validationError.bio} />
         </div>
-        <div className='editprofile-img'>
-          <img src={appLogoStacked} alt="App Logo" />
+        <div className='auth-img_container'>
+          <img className='auth-img' src={appLogoStacked} alt="App Logo" />
         </div>
       </div>
-      <div className='editprofile-buttons'>
+      <div className='auth-buttons'>
         <Button buttonName={"Cancel"} className={"cancel-btn"} onClick={toggleProfileEditMode} />
         <Button buttonName={"Update"} buttonType={'submit'} className={"auth-btn"} onClick={handleSubmit} />
       </div>
