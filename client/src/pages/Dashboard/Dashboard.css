@@ -26,14 +26,19 @@
     font-weight: 600;
 }
 
+/* Dashboard Signed in */
+
 .dashboard{
-    padding-left: 0;
     background-color: var(--clr-light);
     display: flex;
+    flex-direction: column;
     position: relative;    
 }
 
 .dashboard__container{
+    min-height: calc(100svh - 2.5rem);
+    background-color: var(--clr-light);
+    z-index: 10;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -43,7 +48,11 @@
 }
 
 .dashboard__header{
-    width: 80%;
+    background-color: var(--clr-light);
+    position: sticky;
+    z-index: 25;
+    top: 2.5rem;
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -60,9 +69,107 @@
 }
 
 .dashboard__links{
-    width: 80%;
+    width: 100%;
     display: flex;
     flex-direction: column;
     gap: 1rem;
 }
 
+@media only screen and (min-width: 475px) {
+
+}
+  
+@media only screen and (min-width: 640px) {
+
+}
+
+@media only screen and (min-width: 768px) {
+
+}
+
+@media only screen and (min-width: 1024px) {
+    .dashboard-access{
+        background-color: var(--clr-light);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+    }
+    
+    .dashboard-access-header{
+        text-align: center;
+        color: var(--clr-dark);
+        font-size: clamp(1rem, 10vw, 3rem);
+        font-weight: 500;
+    }
+    
+    .dashboard-access-box{
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+    
+    .dashboard-access-or{
+        color: var(--clr-dark);
+        font-size: clamp(0.75rem, 4vw, 1.25rem);
+        font-weight: 600;
+    }
+
+    /* Dashboard Signed in */
+    
+    .dashboard{
+        padding-left: 0;
+        background-color: var(--clr-light);
+        display: flex;
+        flex-direction: row;
+        position: relative;    
+    }
+    
+    .dashboard__container{
+        min-height: calc(100svh - 3rem);
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+        padding-top: 1.5rem;
+    }
+    
+    .dashboard__header{
+        width: 80%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    
+    .dashboard__headerbuttons{
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+    
+    .dashboard__title{
+        color: var(--clr-dark);
+    }
+    
+    .dashboard__links{
+        width: 80%;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+}
+
+@media only screen and (min-width: 1200px) {
+
+}
+
+@media only screen and (min-width: 1440px) {
+
+}
+
+@media only screen and (min-width: 1536px) {
+
+}

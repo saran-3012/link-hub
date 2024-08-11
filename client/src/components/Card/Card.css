@@ -4,7 +4,7 @@
     align-items: center;
     width: 100%;
     height: 2.5rem;
-    background-color: var(--clr-green-50);
+    background-color: var(--clr-white);
     border-radius: 0.25rem;
     box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.1);
     cursor: pointer;
@@ -13,7 +13,7 @@
 
 .card:hover{
     transform: scale(1.01, 1.1);
-    background-color: var(--clr-green-100);
+    background-color: var(--clr-dirt);
 }
 
 .card__line{
@@ -21,14 +21,6 @@
     width: 0.5rem;
     border-radius: 0.25rem 0 0 0.25rem;
     background-color: var(--clr-green-400);
-}
-
-.card:nth-child(even){
-    background-color: var(--clr-blue-50);
-}
-
-.card:nth-child(even):hover{
-    background-color: var(--clr-blue-100);
 }
 
 .card:nth-child(even) > .card__line{
@@ -54,6 +46,7 @@
 
 .card__menu{
     position: relative;
+    z-index: 0;
     display: flex;
     align-items: center;
 }
@@ -63,7 +56,7 @@
     display: flex;
     flex-direction: column;
     right: 2rem;
-    z-index: 100;
+    z-index: 10;
     background-color: var(--clr-light);
     color: var(--clr-dark);
     box-shadow: 1px 1px 8px var(--clr-dirt);

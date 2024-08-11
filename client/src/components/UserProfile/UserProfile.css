@@ -3,8 +3,8 @@
     flex-direction: column;
     gap: 0.75rem;
     width: 100%;
-    padding-left: 1rem;
-    padding-right: 1rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
 }
 
 .userprofile-box{
@@ -61,4 +61,95 @@
 .userprofile-bio{
     text-align: justify;
     font-size: clamp(0.625rem, 2vw, 0.875rem);
+}
+
+@media only screen and (min-width: 475px) {
+
+}
+  
+@media only screen and (min-width: 640px) {
+
+}
+
+@media only screen and (min-width: 768px) {
+
+}
+
+@media only screen and (min-width: 1024px) {
+    .userprofile{
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+        width: 100%;
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+    
+    .userprofile-box{
+        display: flex;
+        gap: 1rem;
+    }
+    
+    .userprofile-avatar{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 5rem;
+        height: 5rem;
+        border-radius: 100%;
+        background: linear-gradient(138deg, rgba(0,212,255,1) 0%, rgba(15,184,176,1) 50%, rgba(32,153,87,1) 100%);
+        color: var(--clr-light);
+        font-size: 2rem;
+        font-weight: 700;
+    }
+    
+    .userprofile-namebox{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+    }
+    
+    .userprofile-name{
+    
+    }
+    
+    .userprofile-username{
+        color: var(--clr-dust);
+    }
+    
+    .userprofile-iconbox{
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+    
+    .userprofile-icons{
+        width: 1rem;
+        color: var(--clr-black);
+    }
+    
+    .userprofile-email{
+        
+    }
+    
+    .userprofile-profession{
+    
+    }
+    
+    .userprofile-bio{
+        text-align: justify;
+        font-size: clamp(0.625rem, 2vw, 0.875rem);
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+
+}
+
+@media only screen and (min-width: 1440px) {
+
+}
+
+@media only screen and (min-width: 1536px) {
+
 }

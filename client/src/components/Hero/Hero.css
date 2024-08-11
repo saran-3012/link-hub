@@ -2,6 +2,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 1rem;
 }
 
 .hero__container{
@@ -28,6 +29,10 @@
     font-size: 1rem;
 }
 
+.hero__img{
+    display: none;
+}
+
 
 @media only screen and (min-width: 475px) {
 
@@ -46,6 +51,11 @@
     .hero__container{
         width: 45%;
     }
+
+    .hero__img{
+        display: block;
+    }
+    
 }
 
 @media only screen and (min-width: 1024px) {

@@ -9,9 +9,9 @@ const ProfileBar = () => {
   return (
     <aside className='profilebar'>
         <UserProfile />
-        <div className='blob-container'>
+        <div className='profilebar-blob-container'>
             <Blob className={'profilebar-blob'}/>
-            <span className='views-count'>{loggedUserDetails.views} Views</span>
+            <span className='profilebar-views-count'>{loggedUserDetails.views} Views</span>
         </div>
     </aside>
   )
