@@ -21,14 +21,15 @@
 
 .share__username{
     font-size: clamp(1.125rem, 5vw, 2.5rem); 
-    color: var(--clr-green-950);
+    color: var(--clr-dark);
 }
 
 .share__userprofession{
-
+    color: var(--clr-dark);
 }
 
 .share__userbio{
+    color: var(--clr-dark);
     margin-top: 0.25rem;
 }
 
