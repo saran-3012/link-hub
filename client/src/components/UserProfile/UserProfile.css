@@ -50,18 +50,19 @@
     color: var(--clr-black);
 }
 
+.userprofile-bio{
+    text-align: justify;
+    font-size: 0.875rem;
+}
+
 .userprofile-email{
-    
+    font-size: 1rem;
 }
 
 .userprofile-profession{
-
+    font-size: 1rem;
 }
 
-.userprofile-bio{
-    text-align: justify;
-    font-size: clamp(0.625rem, 2vw, 0.875rem);
-}
 
 @media only screen and (min-width: 475px) {
 
@@ -127,19 +128,21 @@
         width: 1rem;
         color: var(--clr-black);
     }
+
+    .userprofile-bio{
+        text-align: justify;
+        font-size: 1rem;
+    }
     
     .userprofile-email{
-        
+        font-size: 1.125rem;
     }
     
     .userprofile-profession{
-    
+        font-size: 1.125rem;
     }
     
-    .userprofile-bio{
-        text-align: justify;
-        font-size: clamp(0.625rem, 2vw, 0.875rem);
-    }
+    
 }
 
 @media only screen and (min-width: 1200px) {

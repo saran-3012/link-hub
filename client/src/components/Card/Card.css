@@ -27,6 +27,14 @@
     background-color: var(--clr-blue-400);
 }
 
+.card:hover > .card__line{
+    background-color: var(--clr-green-600);
+}
+
+.card:nth-child(even):hover > .card__line{
+    background-color: var(--clr-blue-600);
+}
+
 .card__link{
     cursor: initial;
     display: flex;

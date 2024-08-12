@@ -53,7 +53,7 @@
     .profilebar{
         position: sticky;
         left: 0;
-        top: 0;
+        top: 3rem;
         height: calc(100svh - 3rem) ;
         width: 35%;
         padding-top: 1rem;

@@ -154,6 +154,27 @@
     background-color: var(--clr-blue-600);
 }
 
+.addlink-btn-mp{
+    position: sticky;
+    top: calc(100% - 3.5rem);
+    border: none;
+    color: var(--clr-light);
+    background: var(--clr-blue-600);
+    background: linear-gradient(135deg, var(--clr-blue-600) 0%, var(--clr-green-600) 100%);
+    border-radius: 100%;
+    padding: 0.5rem;
+    transition: all 150ms;
+}
+
+.addlink-icon-mp{
+    height: 1.5rem;
+    width: 1.5rem;
+}
+
+.addlink-btn-mp:hover{
+    background: linear-gradient(135deg, var(--clr-blue-400) 0%, var(--clr-green-400) 100%);
+}
+
 .sharelink-btn{
     gap: 0.2rem;
     text-wrap: nowrap;
@@ -366,6 +387,10 @@
     .addlink-btn:hover{
         color: var(--clr-light);
         background-color: var(--clr-blue-600);
+    }
+
+    .addlink-btn-mp{
+        display: none;
     }
     
     .sharelink-btn{
