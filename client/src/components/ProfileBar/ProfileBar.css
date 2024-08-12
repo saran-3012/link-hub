@@ -42,20 +42,12 @@
 }
   
 @media only screen and (min-width: 640px) {
-
-}
-
-@media only screen and (min-width: 768px) {
-
-}
-
-@media only screen and (min-width: 1024px) {
     .profilebar{
         position: sticky;
         left: 0;
         top: 3rem;
         height: calc(100svh - 3rem) ;
-        width: 35%;
+        width: 40%;
         padding-top: 1rem;
         color: var(--clr-dark);
         border-right: 1.5px solid var(--clr-white);
@@ -78,7 +70,45 @@
     .profilebar-views-count{
         position: absolute;
         color: var(--clr-light);
-        font-size: clamp(0.75rem, 3vw, 1.125rem);
+        font-size: 0.875rem;
+        font-weight: 600;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+
+}
+
+@media only screen and (min-width: 1024px) {
+    .profilebar{
+        position: sticky;
+        left: 0;
+        top: 3rem;
+        height: calc(100svh - 3rem) ;
+        width: 36%;
+        padding-top: 1rem;
+        color: var(--clr-dark);
+        border-right: 1.5px solid var(--clr-white);
+    }
+    
+    .profilebar-blob-container{
+        position: relative;
+        width: 80%;
+        aspect-ratio: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .profilebar-blob{
+        width: 80%;
+        position: absolute;
+    }
+    
+    .profilebar-views-count{
+        position: absolute;
+        color: var(--clr-light);
+        font-size: 1.125rem;
         font-weight: 600;
     }
     

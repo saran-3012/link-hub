@@ -32,10 +32,11 @@
 }
 
 .userprofile-name{
-
+    font-size: 1.25rem;
 }
 
 .userprofile-username{
+    font-size: 0.875rem;
     color: var(--clr-dust);
 }
 
@@ -47,6 +48,7 @@
 
 .userprofile-icons{
     width: 1rem;
+    flex-shrink: 0;
     color: var(--clr-black);
 }
 
@@ -56,11 +58,13 @@
 }
 
 .userprofile-email{
-    font-size: 1rem;
+    overflow-x: hidden;
+    text-overflow: ellipsis;
+    font-size: 0.875rem;
 }
 
 .userprofile-profession{
-    font-size: 1rem;
+    font-size: 0.875rem;
 }
 
 

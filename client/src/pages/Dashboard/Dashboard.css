@@ -88,7 +88,80 @@
 }
   
 @media only screen and (min-width: 640px) {
+    .dashboard-access{
+        background-color: var(--clr-light);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+    }
+    
+    .dashboard-access-header{
+        text-align: center;
+        color: var(--clr-dark);
+        font-size: clamp(1rem, 10vw, 3rem);
+        font-weight: 500;
+    }
+    
+    .dashboard-access-box{
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+    
+    .dashboard-access-or{
+        color: var(--clr-dark);
+        font-size: clamp(0.75rem, 4vw, 1.25rem);
+        font-weight: 600;
+    }
 
+    /* Dashboard Signed in */
+    
+    .dashboard{
+        padding-left: 0;
+        background-color: var(--clr-light);
+        display: flex;
+        flex-direction: row;
+        position: relative;    
+    }
+    
+    .dashboard__container{
+        min-height: calc(100svh - 3rem);
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+    
+    .dashboard__header{
+        padding-top: 1.25rem;
+        padding-top: 1rem;
+        top: 3rem;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    
+    .dashboard__headerbuttons{
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+    
+    .dashboard__title{
+        color: var(--clr-dark);
+    }
+    
+    .dashboard__links{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
 }
 
 @media only screen and (min-width: 768px) {
