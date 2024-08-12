@@ -3,7 +3,7 @@ import { useContextAPI } from '../../App';
 import './Hero.css';
 import Button from '../../components/Buttons/Button';
 import { Link } from 'react-router-dom';
-import appLogoStacked from '../../assets/app-logo-stacked.png';
+import appLogoStacked from '../../assets/app-logo-icon.png';
 
 const Hero = () => {
 
@@ -23,7 +23,7 @@ const Hero = () => {
                     </Button>
                 </Link>
             </div>
-            <div className='hero__container'>
+            <div className='hero__imgcontainer'>
                 <img className='hero__img' src={appLogoStacked} alt="App Logo" />
             </div>
         </section>

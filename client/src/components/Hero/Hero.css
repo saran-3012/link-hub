@@ -29,8 +29,14 @@
     font-size: 1rem;
 }
 
-.hero__img{
-    display: none;
+.hero__imgcontainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 45%;
+    padding-left: 10%;
+    padding-right: 10%;
+    object-fit: contain;
 }
 
 
@@ -52,8 +58,8 @@
         width: 45%;
     }
 
-    .hero__img{
-        display: block;
+    .hero__imgcontainer{
+        display: flex;
     }
     
 }
