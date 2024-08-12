@@ -6,7 +6,7 @@ import Button from '../Buttons/Button';
 
 const DeleteLink = () => {
     
-    const { userLinks, setUserLinks, deleteLinkDetails, setDeleteLinkDetails } = useContextAPI();
+    const { userLinks, setUserLinks, deleteLinkDetails, setDeleteLinkDetails, isLoading, setIsLoading } = useContextAPI();
 
     const updateUserLinks = () => {
         const filteredLinks = userLinks.filter((currLink) => currLink._id !== deleteLinkDetails._id);
@@ -18,6 +18,8 @@ const DeleteLink = () => {
 
         const url = `${import.meta.env.VITE_API_URL}links/delete/${deleteLinkDetails._id}`;
         const jwtToken = localStorage.getItem('jwt-token');
+
+        setIsLoading(true);
 
         try {
             const res = await fetch(url, {
@@ -41,6 +43,9 @@ const DeleteLink = () => {
         }
         catch (err) {
             console.log(err.message)
+        }
+        finally{
+            setIsLoading(false);
         }
 
     };

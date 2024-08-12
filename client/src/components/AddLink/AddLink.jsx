@@ -7,7 +7,7 @@ import Button from '../Buttons/Button';
 
 const AddLink = () => {
 
-    const { setUserLinks, toggleAddLinkOpen } = useContextAPI();
+    const { setUserLinks, toggleAddLinkOpen, isLoading, setIsLoading } = useContextAPI();
 
     const [linkDetails, setLinkDetails] = useState({
         linkname: '',
@@ -48,6 +48,8 @@ const AddLink = () => {
         const url = `${import.meta.env.VITE_API_URL}links/create`;
         const jwtToken = localStorage.getItem('jwt-token');
 
+        setIsLoading(true);
+
         try {
             const res = await fetch(url, {
                 method: "POST",
@@ -71,6 +73,9 @@ const AddLink = () => {
         }
         catch (err) {
             console.log(err.message)
+        }
+        finally{
+            setIsLoading(false);
         }
 
     };

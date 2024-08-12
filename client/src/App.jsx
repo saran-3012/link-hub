@@ -7,6 +7,7 @@ import Popup from './components/Popup/Popup';
 import SignIn from './components/SignIn/SignIn';
 import SignUp from './components/SignUp/SignUp';
 import EditProfile from './components/EditProfile/EditProfile';
+import Loader from './components/Loader/Loader';
 
 const UserContext = createContext();
 
@@ -44,10 +45,13 @@ function App() {
     views : 0
   });
 
+  const [isLoading, setIsLoading] = useState(false);
+
   const getUserDetails = async (url, jwtToken) => {
     if (!jwtToken) {
       return;
     }
+    setIsLoading(true);
     try {
       const res = await fetch(url, {
         method: "GET",
@@ -64,6 +68,9 @@ function App() {
     }
     catch (err) {
       console.log(err.message);
+    }
+    finally{
+      setIsLoading(false);
     }
   };
 
@@ -173,7 +180,9 @@ function App() {
       deleteLinkDetails,
       setDeleteLinkDetails,
       isShareLinkOpen,
-      toggleShareLinkOpen
+      toggleShareLinkOpen,
+      isLoading, 
+      setIsLoading
     }}>
       <Navbar />
       <AllRoutes />
@@ -203,6 +212,9 @@ function App() {
             <EditProfile />
           </Popup>
         )
+      }
+      {
+        isLoading && <Loader />
       }
 
     </UserContext.Provider>

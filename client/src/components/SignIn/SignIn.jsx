@@ -6,7 +6,7 @@ import Button from '../Buttons/Button';
 import appLogoStacked from '../../assets/app-logo-stacked.png';
 
 const SignIn = () => {
-  const { toggleSignin, switchAuth, setLoggedUserDetails } = useContextAPI();
+  const { toggleSignin, switchAuth, setLoggedUserDetails, isLoading, setIsLoading } = useContextAPI();
 
   const [signinDetails, setSigninDetails] = useState({
     username: '',
@@ -29,6 +29,8 @@ const SignIn = () => {
 
     const url = `${import.meta.env.VITE_API_URL}users/login`;
     
+    setIsLoading(true);
+
     try{
       const res = await fetch(url, {
         method: "POST",
@@ -63,6 +65,9 @@ const SignIn = () => {
     catch(err){
       console.log(err.message)
     }
+    finally{
+      setIsLoading(false);
+    }
 
   };
 
@@ -83,7 +88,6 @@ const SignIn = () => {
           <img className='auth-img' src={appLogoStacked} alt="App Logo" />
         </div>
       </div>
-
     </form>
   )
 }

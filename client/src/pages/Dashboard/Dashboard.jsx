@@ -9,11 +9,11 @@ import AddLink from '../../components/AddLink/AddLink';
 import EditLink from '../../components/EditLink/EditLink';
 import DeleteLink from '../../components/DeleteLink/DeleteLink';
 import ShareLink from '../../components/ShareLink/ShareLink';
+import Loader from '../../components/Loader/Loader';
 
 const Dashboard = () => {
 
-    const { isDarkTheme, loggedUserDetails, toggleSignup, toggleSignin, userLinks, setUserLinks, isAddLinkOpen, toggleAddLinkOpen, editLinkDetails, setEditLinkDetails, deleteLinkDetails, setDeleteLinkDetails, isShareLinkOpen, toggleShareLinkOpen } = useContextAPI();
-
+    const { isDarkTheme, loggedUserDetails, toggleSignup, toggleSignin, userLinks, setUserLinks, isAddLinkOpen, toggleAddLinkOpen, editLinkDetails, setEditLinkDetails, deleteLinkDetails, setDeleteLinkDetails, isShareLinkOpen, toggleShareLinkOpen, isLoading, setIsLoading } = useContextAPI();
 
     const suggestLogIn = () => {
         if (loggedUserDetails?.name !== '') {
@@ -31,7 +31,7 @@ const Dashboard = () => {
         if(!loggedUserDetails?.id){
             return;
         }
-
+        setIsLoading(true);
         try {
             const res = await fetch(url, {
                 method: "GET",
@@ -50,6 +50,9 @@ const Dashboard = () => {
         catch (err) {
             setError(err.message);
             console.log(err.message);
+        }
+        finally{
+            setIsLoading(false);
         }
     };
 

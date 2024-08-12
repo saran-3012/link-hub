@@ -7,7 +7,7 @@ import useValidate from '../../hooks/useValidate';
 
 const EditLink = () => {
 
-    const { userLinks, setUserLinks, editLinkDetails, setEditLinkDetails } = useContextAPI();
+    const { userLinks, setUserLinks, editLinkDetails, setEditLinkDetails, isLoading, setIsLoading } = useContextAPI();
 
     const [linkDetails, setLinkDetails] = useState({
         linkname: editLinkDetails.linkname,
@@ -54,6 +54,8 @@ const EditLink = () => {
         const url = `${import.meta.env.VITE_API_URL}links/update/${editLinkDetails._id}`;
         const jwtToken = localStorage.getItem('jwt-token');
 
+        setIsLoading(true);
+
         try {
             const res = await fetch(url, {
                 method: "PATCH",
@@ -77,6 +79,9 @@ const EditLink = () => {
         }
         catch (err) {
             console.log(err.message)
+        }
+        finally{
+            setIsLoading(false);
         }
 
     };

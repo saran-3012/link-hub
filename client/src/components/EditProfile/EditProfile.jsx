@@ -7,7 +7,7 @@ import appLogoStacked from '../../assets/app-logo-stacked.png';
 
 
 const EditProfile = () => {
-  const { toggleProfileEditMode, loggedUserDetails, setLoggedUserDetails } = useContextAPI();
+  const { toggleProfileEditMode, loggedUserDetails, setLoggedUserDetails, isLoading, setIsLoading } = useContextAPI();
 
   const [editedDetails, setEditedDetails] = useState({
     name: loggedUserDetails.name,
@@ -96,6 +96,8 @@ const EditProfile = () => {
     const url = `${import.meta.env.VITE_API_URL}users/update`;
     const jwtToken = localStorage.getItem('jwt-token');
 
+    setIsLoading(true);
+
     try {
       const res = await fetch(url, {
         method: "PATCH",
@@ -119,6 +121,9 @@ const EditProfile = () => {
     }
     catch (err) {
       console.log(err.message)
+    }
+    finally{
+      setIsLoading(false);
     }
 
   };

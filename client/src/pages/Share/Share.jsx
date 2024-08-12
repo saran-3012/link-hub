@@ -3,15 +3,15 @@ import { useParams } from 'react-router-dom';
 import { useContextAPI } from '../../App';
 import './Share.css';
 import Card from '../../components/Card/Card';
+import Loader from '../../components/Loader/Loader';
 
 const Share = () => {
 
-    const {isDarkTheme} = useContextAPI();
+    const {isDarkTheme, isLoading, setIsLoading} = useContextAPI();
 
     const {username} = useParams();
 
     const [links, setLinks] = useState([]);
-    const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState(null);
     const [ownerDetails, setOwnerDetails] = useState({
         name: '',
