@@ -10,7 +10,11 @@ const port = process.env.PORT || 8080;
 const uri = process.env.MONGO_DB_URI;
 
 // Middlewares
-app.use(cors());
+app.use(cors(
+    {
+        origin: "https://link-hub-app.vercel.app"
+    }
+));
 app.use(express.json());
 
 app.use('/users', userRoutes);
