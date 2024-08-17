@@ -78,7 +78,20 @@
     width: 100%;
 }
 
+.navbar__iconlink{
+    text-decoration: none;
+    color: var(--clr-blue-900);
+    transition: all 150ms;
+}
 
+.navbar__iconlink:hover{
+    color: var(--clr-blue-700);
+}
+
+.navbar__icon{
+    width: 1.5rem;
+    height: 1.5rem;
+}   
 
 
 

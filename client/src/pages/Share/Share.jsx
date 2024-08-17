@@ -46,7 +46,6 @@ const Share = () => {
             else{
                 setError(err.message);
             }
-            console.log(err.message);
         }
         finally{
             setIsLoading(false);
