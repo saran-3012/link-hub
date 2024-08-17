@@ -28,15 +28,24 @@ const Share = () => {
         try{
             const res = await fetch(url);
             const resJson = await res.json();
-            if(res.status !== 200){
-                throw new Error("Error while fetching data!");
+            if(res.status === 404){
+                throw new Error("User not found!");
             }
+            if(!res.ok ){
+                throw new Error("Something went wrong!")
+            }
+
             setLinks(resJson.data);
             setOwnerDetails(resJson.user);
             localStorage.setItem(`viewed:${username}`, 'true');
         }
         catch(err){
-            setError(err.message);
+            if(err?.message === "Failed to fetch"){
+                setError("Something Went wrong!");
+            }
+            else{
+                setError(err.message);
+            }
             console.log(err.message);
         }
         finally{
@@ -52,6 +61,14 @@ const Share = () => {
 
         fetchLinks(url);
     }, [username]);
+
+    if(error){
+        return (
+            <section className={`share section container share__error ${isDarkTheme? 'dark-theme' : ''}`}>
+                <h2 className='share__username'>{error}</h2>
+            </section>
+        )
+    }
 
     return (
         <section className={`share section container ${isDarkTheme? 'dark-theme' : ''}`}>
